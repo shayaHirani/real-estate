@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="property"
+            type="domain.Property" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/property_image"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="1:1"
+            android:adjustViewBounds="true"
+            android:padding="2dp"
+            android:scaleType="centerCrop"
+            app:imageUrl="@{property.propertyImageURL}"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/agent_image"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="20dp"
+            android:adjustViewBounds="true"
+            android:padding="2dp"
+            android:scaleType="centerCrop"
+            app:imageUrl="@{property.agentImageURL}"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/property_image"
+            tools:ignore="MissingConstraints"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+        <TextView
+            android:id="@+id/agent_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"
+            android:text="@{property.agentName}"
+            android:textAlignment="center"
+            android:textColor="#999999"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/bedroom_number"
+            app:layout_constraintLeft_toLeftOf="@+id/agent_image"
+            app:layout_constraintRight_toRightOf="@+id/agent_image"
+            app:layout_constraintTop_toBottomOf="@+id/agent_image"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/company_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:text="@{property.companyName}"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/agent_image"
+            app:layout_constraintTop_toTopOf="@+id/agent_image"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/property_address"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{property.propertyAddress}"
+            android:textColor="#999999"
+            android:textSize="12sp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintLeft_toLeftOf="@+id/company_name"
+            app:layout_constraintRight_toRightOf="@+id/company_name"
+            app:layout_constraintTop_toBottomOf="@+id/company_name"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/bedroom_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:textColor="#000000"
+            app:layout_constraintLeft_toLeftOf="@+id/company_name"
+            android:textSize="20sp"
+            app:availableNumberOfStuff="@{property.bedroomNumber}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/bedroom_icon"
+            android:layout_width="20dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="3dp"
+            app:layout_constraintBottom_toBottomOf="@+id/bedroom_number"
+            app:layout_constraintStart_toEndOf="@+id/bedroom_number"
+            app:layout_constraintTop_toTopOf="@+id/bedroom_number"
+            app:srcCompat="@drawable/bed" />
+
+        <TextView
+            android:id="@+id/beth_room_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:availableNumberOfStuff="@{property.bathroomNumber}"
+            app:layout_constraintBottom_toBottomOf="@+id/bedroom_icon"
+            app:layout_constraintStart_toEndOf="@+id/bedroom_icon"
+            app:layout_constraintTop_toTopOf="@+id/bedroom_icon" />
+
+        <ImageView
+            android:id="@+id/beth_room_icon"
+            android:layout_width="20dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="3dp"
+            app:layout_constraintBottom_toBottomOf="@+id/beth_room_number"
+            app:layout_constraintStart_toEndOf="@+id/beth_room_number"
+            app:layout_constraintTop_toTopOf="@+id/beth_room_number"
+            app:srcCompat="@drawable/bathtub" />
+
+        <TextView
+            android:id="@+id/car_park_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:availableNumberOfStuff="@{property.carParkNumber}"
+            app:layout_constraintBottom_toBottomOf="@+id/beth_room_icon"
+            app:layout_constraintStart_toEndOf="@+id/beth_room_icon"
+            app:layout_constraintTop_toTopOf="@+id/beth_room_icon" />
+
+        <ImageView
+            android:id="@+id/car_park_icon"
+            android:layout_width="20dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="3dp"
+            app:layout_constraintBottom_toBottomOf="@+id/car_park_number"
+            app:layout_constraintStart_toEndOf="@+id/car_park_number"
+            app:layout_constraintTop_toTopOf="@+id/car_park_number"
+            app:srcCompat="@drawable/parking" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

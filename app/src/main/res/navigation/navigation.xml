@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    app:startDestination="@id/propertyListFragment">
+
+    <fragment
+        android:id="@+id/propertyListFragment"
+        android:name="com.jetbrains.handson.mpp.sentiaandroidcodechallenge.ui.ui.PropertyListFragment"
+        android:label="PropertyListFragment">
+        <action
+            android:id="@+id/action_propertyListFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment android:id="@+id/detailsFragment"
+    android:name="com.jetbrains.handson.mpp.sentiaandroidcodechallenge.ui.ui.DetailsFragment"
+    android:label="DetailsFragment"
+        >
+        <argument
+            android:name="selectedProperty"
+            app:argType="domain.Property" />
+    </fragment>
+</navigation>
